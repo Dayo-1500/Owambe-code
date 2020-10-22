@@ -35,13 +35,12 @@ if (!snapshot.size) return renderer.empty(); // Display "There is nothing here".
     });
   });
 };
-};
 
 Owambe.prototype.getUser = function(id) {
   /*
     TODO: Retrieve a single user
   */
-firebase.firestore().collection('users').doc(id).get();
+return firebase.firestore().collection('users').doc(id).get();
 };
 
 Owambe.prototype.getFilteredUsers = function(filters, renderer) {
@@ -50,7 +49,7 @@ Owambe.prototype.getFilteredUsers = function(filters, renderer) {
   */
   var query = firebase.firestore().collection('users');
 
-  if (filters.name !== 'Any') {
+  if (filters.category !== 'Any') {
     query = query.where('name', '==', filters.name);
   }
 
