@@ -15,26 +15,26 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Learn how to use the Firebase platform on the Web">
+  <meta name="description" content="Let's connect and make things work">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FriendlyEats</title>
+  <title>Owambe</title>
 
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
-  <link rel="icon" href="images/favicon.ico">
+  <link rel="Let's connect and make things work (2).jpg" href="Let's connect and make things work (2).jpg">
 
   <!-- Web Application Manifest -->
   <link rel="manifest" href="manifest.json">
 
   <!-- Add to homescreen for Chrome on Android -->
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="FriendlyEats">
+  <meta name="application-name" content="Owambe">
   <meta name="theme-color" content="#4285F4">
 
   <!-- Add to homescreen for Safari on iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="FriendlyEats">
+  <meta name="apple-mobile-web-app-title" content="Owambe">
   <meta name="apple-mobile-web-app-status-bar-style" content="#4285F4">
 
   <!-- Tile icon for Win8 -->
@@ -64,7 +64,7 @@
         <div id="title" class="mdc-toolbar__row mdc-layout-grid">
           <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
             <span class="material-icons mdc-toolbar__icon--menu">restaurant</span>
-            <span class="mdc-toolbar__title">FriendlyEats</span>
+            <span class="mdc-toolbar__title">Owambe</span>
           </section>
         </div>
         <div id="section-header" data-fir-if="hasSectionHeader"></div>
@@ -83,13 +83,13 @@
     </div>
   </div>
 
-  <div hidden class="template" id="no-restaurants">
+  <div hidden class="template" id="no-users">
     <div id="guy-container" class="mdc-toolbar-fixed-adjust">
-      <img class="guy" src="/images/guy_fireats.png" />
+      <img class="guy" src="Let's connect and make things work (2).jpg" />
       <div class="text">
         This app is connected to the Firebase project "<b data-fir-content="projectId"></b>".<br />
         <br />
-        Your Cloud Firestore has no documents in <b>/restaurants/</b>.
+        Your Cloud Firestore has no documents in <b>/users/</b>.
       </div>
       <br />
       <a class="mdc-button" id="add_mock_data">
@@ -100,9 +100,9 @@
 
   <div hidden class="template" id="no-ratings">
       <div id="guy-container" class="mdc-toolbar-fixed-adjust">
-        <img class="guy" src="/images/guy_fireats.png" />
+        <img class="guy" src="Let's connect and make things work (2).jpg" />
         <div class="text">
-          This restaurant has no ratings.<br />
+          This user has no ratings.<br />
         </div>
         <br />
         <a class="mdc-button" data-fir-click="add_mock_data">
@@ -113,9 +113,9 @@
 
   <div hidden class="template" id="no-results">
     <div id="guy-container" class="mdc-toolbar-fixed-adjust">
-      <img class="guy" src="/images/guy_fireats.png" />
+      <img class="guy" src="Let's connect and make things work (2).jpg" />
       <div class="text">
-        There are no results for your those filters!
+        There is nothing here!
       </div>
     </div>
   </div>
@@ -131,7 +131,7 @@
     </div>
   </div>
 
-  <div hidden class="template" id="restaurant-header">
+  <div hidden class="template" id="user-header">
     <header class="mdc-layout__header mdc-layout__header--transparent" data-fir-style="backgroundImage:photo">
 
       <div class="mdc-layout-grid" style="width: 100%;">
@@ -142,11 +142,11 @@
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 info">
                 <div class="max_width_600">
                   <h2 data-fir-content="name"></h2>
-                  <span class="price"></span>
+                  <span class="email"></span>
                   <div class="rating"></div>
                   <div class="details">
                     <span class="rating"></span>
-                    <span data-fir-content="category"></span>
+                    <span data-fir-content="country"></span>
                     <span class="light">●</span>
                     <span data-fir-content="city"></span>
                   </div>
@@ -161,7 +161,7 @@
   </div>
 
   <div hidden class="template" id="rating"></div>
-  <span hidden class="template" id="price"></span>
+  <span hidden class="template" id="name"></span>
 
   <div hidden class="template mdc-layout-grid__cell--span-12" id="review-card">
     <div class="review max_width_600">
@@ -175,12 +175,12 @@
     </div>
   </div>
 
-  <div hidden class="template mdc-layout-grid__cell mdc-layout-grid__cell--span-4" id="restaurant-card">
-    <div class="location-card mdc-card mdc-shadow--2dp" data-fir-click="go_to_restaurant">
+  <div hidden class="template mdc-layout-grid__cell mdc-layout-grid__cell--span-4" id="user-card">
+    <div class="location-card mdc-card mdc-shadow--2dp" data-fir-click="go_to_user">
       <div class="mdc-card__title" data-fir-style="backgroundImage:photo"></div>
       <div class="mdc-card__supporting-text">
         <h2 data-fir-content="name">...</h2>
-        <span class="info price"></span>
+        <span class="info email"></span>
         <div class="details">
           <div class="rating"></div>
         </div>
@@ -202,20 +202,20 @@
   </ul>
 
   <ul hidden class="template mdc-list" id="all-filters-list">
-    <li id="show-page-category" class="mdc-list-item" data-mdc-auto-init="MDCRipple">
+    <li id="show-page-country" class="mdc-list-item" data-mdc-auto-init="MDCRipple">
       <i class="material-icons">fastfood</i>
-      <span data-fir-if-not="category">Any Category</span>
-      <b data-fir-content="category"></b>
+      <span data-fir-if-not="country">Any Category</span>
+      <b data-fir-content="country"></b>
     </li>
     <li id="show-page-city" class="mdc-list-item" data-mdc-auto-init="MDCRipple">
       <i class="material-icons">location_on</i>
       <span data-fir-if-not="city">Any Location</span>
       <b data-fir-content="city"></b>
     </li>
-    <li id="show-page-price" class="mdc-list-item" data-mdc-auto-init="MDCRipple">
+    <li id="show-page-name" class="mdc-list-item" data-mdc-auto-init="MDCRipple">
       <i class="material-icons">monetization_on</i>
-      <span data-fir-if-not="price">Any Price</span>
-      <b data-fir-content="price"></b>
+      <span data-fir-if-not="name">Any Name</span>
+      <b data-fir-content="name"></b>
     </li>
     <li id="show-page-sort" class="mdc-list-item" data-mdc-auto-init="MDCRipple">
       <i class="material-icons">sort</i>
@@ -241,7 +241,7 @@
       </div>
       <div class="page" id="page-category">
         <header class="mdc-dialog__header">
-          <i class="material-icons">fastfood</i>
+          <i class="material-icons">charity</i>
           <h2 id="mdc-dialog-with-list-label" class="mdc-dialog__header__title">
             Category
           </h2>
@@ -267,11 +267,11 @@
           <button type="button" class="mdc-button mdc-dialog__footer__button back">Back</button>
         </footer>
       </div>
-      <div class="page" id="page-price">
+      <div class="page" id="page-name">
           <header class="mdc-dialog__header">
             <i class="material-icons">monetization_on</i>
             <h2 id="mdc-dialog-with-list-label" class="mdc-dialog__header__title">
-              Price
+              Name
             </h2>
           </header>
           <section class="mdc-dialog__body mdc-dialog__body--scrollable">
@@ -356,9 +356,9 @@
 
 <script src="//unpkg.com/navigo@6"></script>
 
-<script src="/scripts/FriendlyEats.js"></script>
-<script src="/scripts/FriendlyEats.View.js"></script>
-<script src="/scripts/FriendlyEats.Mock.js"></script>
-<script src="/scripts/FriendlyEats.Data.js"></script>
+<script src="/scripts/Owambe.js"></script>
+<script src="/scripts/Owambe.View.js"></script>
+<script src="/scripts/Owambe.Mock.js"></script>
+<script src="/scripts/Owambe.Data.js"></script>
 </body>
 </html>
