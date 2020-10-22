@@ -1,11 +1,11 @@
 {
   "indexes": [
     {
-      "collectionGroup": "restaurants",
+      "collectionGroup": "users",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "price",
+          "fieldPath": "name",
           "order": "ASCENDING"
         },
         {
@@ -15,7 +15,7 @@
       ]
     },
     {
-      "collectionGroup": "restaurants",
+      "collectionGroup": "users",
       "queryScope": "COLLECTION",
       "fields": [
         {
@@ -29,7 +29,7 @@
       ]
     },
     {
-      "collectionGroup": "restaurants",
+      "collectionGroup": "users",
       "queryScope": "COLLECTION",
       "fields": [
         {
@@ -43,7 +43,7 @@
       ]
     },
     {
-      "collectionGroup": "restaurants",
+      "collectionGroup": "users",
       "queryScope": "COLLECTION",
       "fields": [
         {
@@ -57,7 +57,7 @@
       ]
     },
     {
-      "collectionGroup": "restaurants",
+      "collectionGroup": "users",
       "queryScope": "COLLECTION",
       "fields": [
         {
@@ -71,7 +71,7 @@
       ]
     },
     {
-      "collectionGroup": "restaurants",
+      "collectionGroup": "users",
       "queryScope": "COLLECTION",
       "fields": [
         {
@@ -85,7 +85,7 @@
       ]
     },
     {
-      "collectionGroup": "restaurants",
+      "collectionGroup": "users",
       "queryScope": "COLLECTION",
       "fields": [
         {
@@ -99,7 +99,7 @@
       ]
     },
     {
-      "collectionGroup": "restaurants",
+      "collectionGroup": "users",
       "queryScope": "COLLECTION",
       "fields": [
         {
