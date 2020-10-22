@@ -1,28 +1,13 @@
-/**
- * Copyright 2017 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 'use strict';
 
 /**
- * Initializes the FriendlyEats app.
+ * Initializes the Owambe app.
  */
-function FriendlyEats() {
+function Owambe() {
   this.filters = {
     city: '',
-    price: '',
-    category: '',
+    name: '',
+    country: '',
     sort: 'Rating'
   };
 
@@ -40,9 +25,9 @@ function FriendlyEats() {
 }
 
 /**
- * Initializes the router for the FriendlyEats app.
+ * Initializes the router for the Owambe app.
  */
-FriendlyEats.prototype.initRouter = function() {
+Owambe.prototype.initRouter = function() {
   this.router = new Navigo();
 
   var that = this;
@@ -58,17 +43,17 @@ FriendlyEats.prototype.initRouter = function() {
       }
     })
     .on({
-      '/restaurants/*': function() {
+      '/users/*': function() {
         var path = that.getCleanPath(document.location.pathname);
         var id = path.split('/')[2];
-        that.viewRestaurant(id);
+        that.viewUser(id);
       }
     })
     .resolve();
 
   firebase
     .firestore()
-    .collection('restaurants')
+    .collection('users')
     .limit(1)
     .onSnapshot(function(snapshot) {
       if (snapshot.empty) {
@@ -77,7 +62,7 @@ FriendlyEats.prototype.initRouter = function() {
     });
 };
 
-FriendlyEats.prototype.getCleanPath = function(dirtyPath) {
+Owambe.prototype.getCleanPath = function(dirtyPath) {
   if (dirtyPath.startsWith('/index.html')) {
     return dirtyPath.split('/').slice(1).join('/');
   } else {
@@ -85,88 +70,71 @@ FriendlyEats.prototype.getCleanPath = function(dirtyPath) {
   }
 };
 
-FriendlyEats.prototype.getFirebaseConfig = function() {
+Owambe.prototype.getFirebaseConfig = function() {
   return firebase.app().options;
 };
 
-FriendlyEats.prototype.getRandomItem = function(arr) {
+Owambe.prototype.getRandomItem = function(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 };
 
-FriendlyEats.prototype.data = {
+Owambe.prototype.data = {
   words: [
-    'Bar',
-    'Fire',
-    'Grill',
-    'Drive Thru',
-    'Place',
-    'Best',
-    'Spot',
-    'Prime',
-    'Eatin\''
+    'Charity',
+    'Fund raising',
+    'Give',
+    'Donate',
+    'Paliative',
+    'Crowd fund',
+    'Help',
+    'Outreach',
+    'Hunger\''
   ],
   cities: [
-    'Albuquerque',
-    'Arlington',
-    'Atlanta',
-    'Austin',
-    'Baltimore',
-    'Boston',
-    'Charlotte',
-    'Chicago',
-    'Cleveland',
-    'Colorado Springs',
-    'Columbus',
-    'Dallas',
-    'Denver',
-    'Detroit',
-    'El Paso',
-    'Fort Worth',
-    'Fresno',
-    'Houston',
-    'Indianapolis',
-    'Jacksonville',
-    'Kansas City',
-    'Las Vegas',
-    'Long Island',
-    'Los Angeles',
-    'Louisville',
-    'Memphis',
-    'Mesa',
-    'Miami',
-    'Milwaukee',
-    'Nashville',
-    'New York',
-    'Oakland',
-    'Oklahoma',
-    'Omaha',
-    'Philadelphia',
-    'Phoenix',
-    'Portland',
-    'Raleigh',
-    'Sacramento',
-    'San Antonio',
-    'San Diego',
-    'San Francisco',
-    'San Jose',
-    'Tucson',
-    'Tulsa',
-    'Virginia Beach',
-    'Washington'
+    'Abuja',
+    'Accra',
+    'Addis Ababa',
+    'Antananarivo',
+    'Bamako',
+    'Brazzaville',  
+    'Bujumbura',
+    'Conakry',
+    'Gaborone',
+    'Harare',
+    'Kampala',
+    'Khartoum',
+    'Kigali',
+    'Kinshasa',
+    'Lusaka',
+    'Maputo',
+    'Mogadishu',
+    'Nairobi',
+    'NDjamena',
+    'Nouakchott',
+    'Rabat',
+    'Windhoek'
   ],
-  categories: [
-    'Brunch',
-    'Burgers',
-    'Coffee',
-    'Deli',
-    'Dim Sum',
-    'Indian',
-    'Italian',
-    'Mediterranean',
-    'Mexican',
-    'Pizza',
-    'Ramen',
-    'Sushi'
+  countries: [
+    'Angola',
+    'Burundi',
+    'Botswana',
+    'Congo',
+    'Chad',
+    'Ethiopia',
+    'Ghana',
+    'Guinea',
+    'Kenya',
+    'Madagascar',
+    'Mali',
+    'Mauritania',
+    'Morocco',
+    'Namibia',
+    'Nigeria',
+    'Rwanda',
+    'Somalia'
+    'Swaziland',
+    'Zambia',
+    'Zimbabwe'
   ],
   ratings: [
     {
@@ -193,5 +161,5 @@ FriendlyEats.prototype.data = {
 };
 
 window.onload = function() {
-  window.app = new FriendlyEats();
+  window.app = new Owambe();
 };
