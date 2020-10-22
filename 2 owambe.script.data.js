@@ -49,7 +49,7 @@ Owambe.prototype.getFilteredUsers = function(filters, renderer) {
   */
   var query = firebase.firestore().collection('users');
 
-  if (filters.category !== 'Any') {
+  if (filters.name !== 'Any') {
     query = query.where('name', '==', filters.name);
   }
 
