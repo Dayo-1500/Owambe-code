@@ -1,7 +1,8 @@
 
-/**
+/** NOTE: The random data generated here is part of the codelab where I lifted owambe project from. 
+*  Meaning owambe was lifted from FriendlyEats codelab on firebase.
  * Copyright 2017 Google Inc. All Rights Reserved.
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
