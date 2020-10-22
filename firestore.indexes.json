@@ -33,7 +33,7 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "price",
+          "fieldPath": "name",
           "order": "ASCENDING"
         },
         {
@@ -61,7 +61,7 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "category",
+          "fieldPath": "country",
           "order": "ASCENDING"
         },
         {
@@ -75,11 +75,11 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "category",
+          "fieldPath": "country",
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "price",
+          "fieldPath": "name",
           "order": "ASCENDING"
         }
       ]
@@ -93,7 +93,7 @@
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "price",
+          "fieldPath": "name",
           "order": "ASCENDING"
         }
       ]
@@ -103,7 +103,7 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "category",
+          "fieldPath": "country",
           "order": "ASCENDING"
         },
         {
