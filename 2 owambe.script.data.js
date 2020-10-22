@@ -1,37 +1,37 @@
 'use strict';
-/**
- * Initializes the FriendlyEats app.
- */
-function FriendlyEats() {
-  this.filters = {
-    city: '',
-    price: '',
-    category: '',
-    sort: 'Rating'
-  };
 
-  this.dialogs = {};
+Owambe.prototype.addUsers = function(data) {
+  /*
+    TODO: Implement adding a document
+  */
+};
 
-  firebase.firestore().settings({ timestampsInSnapshots: true });
+Owambe.prototype.getAllUsers = function(renderer) {
+  /*
+    TODO: Retrieve list of users
+  */
+};
 
-  var that = this;
-  firebase.auth().signInAnonymously().then(function() {
-    that.initTemplates();
-    that.initRouter();
-    that.initReviewDialog();
-    that.initFilterDialog();
-  }).catch(function(err) {
-    console.log(err);
-  });
-}
-/**
- * Initializes the router for the FriendlyEats app.
- */
-FriendlyEats.prototype.initRouter = function() {
-  this.router = new Navigo();
-  var that = this;
-  this.router
-    .on({
-      '/': function() {
-        that.updateQuery(that.filters);
-      }
+Owambe.prototype.getDocumentsInQuery = function(query, renderer) {
+  /*
+    TODO: Render all documents in the provided query
+  */
+};
+
+Owambe.prototype.getUsers = function(id) {
+  /*
+    TODO: Retrieve a single user
+  */
+};
+
+Owambe.prototype.getFilteredUsers = function(filters, renderer) {
+  /*
+    TODO: Retrieve filtered list of users
+  */
+};
+
+Users.prototype.addRating = function(UserID, rating) {
+  /*
+    TODO: Retrieve add a rating to a users
+  */
+};
