@@ -1,6 +1,6 @@
 'use strict';
 
-Owambe.prototype.addUsers = function(data) {
+Owambe.prototype.addUser = function(data) {
   /*
     TODO: Implement adding a document
   */
@@ -24,7 +24,7 @@ Owambe.prototype.getDocumentsInQuery = function(query, renderer) {
     TODO: Render all documents in the provided query
   */
 query.onSnapshot(function(snapshot) {
-if (!snapshot.size) return renderer.empty(); // Display "Results empty".
+if (!snapshot.size) return renderer.empty(); // Display "There is nothing here".
 
     snapshot.docChanges().forEach(function(change) {
       if (change.type === 'removed') {
@@ -37,7 +37,7 @@ if (!snapshot.size) return renderer.empty(); // Display "Results empty".
 };
 };
 
-Owambe.prototype.getUsers = function(id) {
+Owambe.prototype.getUser = function(id) {
   /*
     TODO: Retrieve a single user
   */
@@ -71,7 +71,7 @@ Owambe.prototype.getFilteredUsers = function(filters, renderer) {
   this.getDocumentsInQuery(query, renderer);
 };
 
-Users.prototype.addRating = function(UserID, rating) {
+Owambe.prototype.addRating = function(userID, rating) {
   /*
     TODO: Retrieve add a rating to users
   */
